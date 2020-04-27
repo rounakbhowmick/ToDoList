@@ -56,15 +56,20 @@ const filterTodos = (term) => {
         .filter((todo) => todo.textContent.includes(term))
         .forEach((todo) => todo.classList.remove('filtered'));
 
+
 };
 
 //Search
 search.addEventListener('keyup', () => {
     const term = search.value.trim().toLowerCase();
     filterTodos(term);
+
 });
 //Date
 const now = new Date();
-const modifieddate = dateFns.format(now, 'dddd, Do MMMM');
-console.log(modifieddate);
-document.getElementById("date").innerText = modifieddate;
+let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let day = days[ now.getDay() ];
+let month = months[ now.getMonth() ];
+let finall=day+",  "+now.getDate()+ " "+ month;
+document.getElementById("date").innerText = finall;
