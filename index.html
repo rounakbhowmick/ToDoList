@@ -4,43 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Todos</title>
+    <title>ToDO</title>
 </head>
 
 <body>
+
     <div class="container">
-
-        <header class="text-center text-light my-4">
-            <h1 class="mb-4">Todo List</h1>
-            <form class="search">
-                <input class="form-control m-auto" type="text" name="search" placeholder="search todos" />
-            </form>
+        <header class="header">
+            <h3 id="date"></h3>
         </header>
+        <form class="search">
+            <i class="fas fa-search-plus fa-2x" id="searchtodo"></i>
+            <input type="text" name="search" id="searchid" placeholder="search todos">
+        </form>
+        <h3 class="ongoing">Ongoing task</h3>
+        <ul class="todos">
+            <li class="list-group-item">
+                <i class="delete far fa-trash-alt "></i>
+                <span>Data Structure</span>
+            </li>
+            <li class="list-group-item ">
+                <i class="far fa-trash-alt delete "></i>
+                <span>Java</span>
 
-        <ul class="list-group todos mx-auto text-light">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>play mariokart</span>
-                <i class="far fa-trash-alt delete"></i>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>defeat ganon in zelda</span>
-                <i class="far fa-trash-alt delete"></i>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>make a veggie pie</span>
-                <i class="far fa-trash-alt delete"></i>
             </li>
         </ul>
-
-        <form class="add text-center my-4">
-            <label class="text-light">Add a new todo...</label>
-            <input class="form-control m-auto" type="text" name="add" />
+        <form class="add">
+            <input type="text" id="addtodo" name="add">
+            <i class=" fas fa-plus-circle fa-2x"></i>
         </form>
-
     </div>
+    <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
     <script src="https://kit.fontawesome.com/8b62f518dd.js" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>

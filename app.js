@@ -1,24 +1,43 @@
 const addForm = document.querySelector('.add');
+const searchtodo = document.querySelector('.search');
 const list = document.querySelector('.todos');
 const search = document.querySelector('.search input');
+
+//Add new todo
 const generateTemplate = todo => {
     const html = `
-    <li class="list-group-item d-flex justify-content-between align-items-center">
+    <li class="list-group-item">
+                <i class="delete far fa-trash-alt "></i>
                 <span>${todo}</span>
-                <i class="far fa-trash-alt delete"></i>
             </li>
             `;
     list.innerHTML += html;
 };
+
+addForm.addEventListener('click', e => {
+    document.getElementById("addtodo").style.display = "block";
+});
+searchtodo.addEventListener('click', e => {
+    document.getElementById("searchid").style.display = "block";
+});
+
+
+
 addForm.addEventListener('submit', e => {
+
     e.preventDefault();
+
     const todo = addForm.add.value.trim();
     if (todo.length) {
         generateTemplate(todo);
+        document.getElementById("addtodo").style.display = "none";
         addForm.reset();
+    } else {
+        document.getElementById("addtodo").style.display = "none";
     }
 });
-//Delete todos
+
+//Delete
 list.addEventListener('click', e => {
     //console.log(e.target);
     if (e.target.classList.contains('delete')) {
@@ -26,6 +45,7 @@ list.addEventListener('click', e => {
     }
 });
 
+//Search
 const filterTodos = (term) => {
 
     Array.from(list.children)
@@ -43,3 +63,8 @@ search.addEventListener('keyup', () => {
     const term = search.value.trim().toLowerCase();
     filterTodos(term);
 });
+//Date
+const now = new Date();
+const modifieddate = dateFns.format(now, 'dddd, Do MMMM');
+console.log(modifieddate);
+document.getElementById("date").innerText = modifieddate;
